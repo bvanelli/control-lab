@@ -1,0 +1,30 @@
+# Site settings
+title: Laboratório de Controle de Processos
+email: brunno.v@grad.ufsc.br
+author: Brunno Vanelli
+project_name: control-lab
+project_site: https://github.com/bvanelli/control-lab
+download_url: https://github.com/bvanelli/control-lab
+short_description: >
+  <p>Free Bootstrap theme for your project documentation</p>
+  <p>Designed with <i class="fa fa-heart"></i> for developers</p>
+description: > # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+twitter_username: TWITTER_USER
+github_username: bvanelli
+
+
+markdown: kramdown
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+      type: "pages"
+    values:
+      body_color: "primary"
+      layout: "page"
+      title_icon: fa fa-link
+
+# allowed colors: primary, green, blue, orange, red, pink, purple
