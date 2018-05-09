@@ -1,7 +1,7 @@
 ---
 permalink: /about/
 title: About
-title_icon: icon_gift
+title_icon: icon_group
 body_color: purple
 description: Sobre o projeto
 ---

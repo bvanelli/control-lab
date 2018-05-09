@@ -6,13 +6,12 @@ project_name: control-lab
 project_site: https://github.com/bvanelli/control-lab
 download_url: https://github.com/bvanelli/control-lab
 short_description: >
-  <p>Free Bootstrap theme for your project documentation</p>
-  <p>Designed with <i class="fa fa-heart"></i> for developers</p>
+  <p>Laboratório de Controle de Sistemas</p>
+  <p>Desenvolvido com <i class="fa fa-heart"></i> e com código aberto</p>
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-twitter_username: TWITTER_USER
+    O laboratório de controle de sistemas é um projeto desenvolvido por alunos
+    da UFSC para facilitar o aprendizado de sistemas de controle. O projeto conta
+    com simulação, montagem e realização de experimentos em sistemas físicos reais.
 github_username: bvanelli
 
 
