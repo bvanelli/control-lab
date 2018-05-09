@@ -1,5 +1,5 @@
 ---
-permalink: /exp1/
+permalink: exp1/
 title: Experimento 1
 title_icon: icon_puzzle_alt
 body_color: blue

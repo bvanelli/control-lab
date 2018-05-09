@@ -1,5 +1,5 @@
 ---
-permalink: /about/
+permalink: about/
 title: About
 title_icon: icon_group
 body_color: purple
