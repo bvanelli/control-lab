@@ -13,6 +13,7 @@ description: > # this means to ignore newlines until "baseurl:"
     da UFSC para facilitar o aprendizado de sistemas de controle. O projeto conta
     com simulação, montagem e realização de experimentos em sistemas físicos reais.
 github_username: bvanelli
+baseurl: /control-lab
 
 
 markdown: kramdown
