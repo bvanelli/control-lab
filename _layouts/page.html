@@ -24,9 +24,9 @@ is_doc: "yes"
 <div class="doc-wrapper">
   <div class="container">
     <div id="doc-header" class="doc-header text-center">
-      <h1 class="doc-title"><i class="icon {{ page.title_icon }}"></i> {{ page.title }}</h1>
+      <h1 class="doc-title"><i class="{{ page.title_icon }}"></i> {{ page.title }}</h1>
       {% if page.updated %}
-      <div class="meta"><i class="fa fa-clock-o"></i> Última atualização: {{ page.updated }}</div>
+      <div class="meta"><i class="far fa-clock"></i> Última atualização: {{ page.updated }}</div>
       {% endif %}
     </div><!--//doc-header-->
 

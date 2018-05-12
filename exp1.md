@@ -1,7 +1,7 @@
 ---
 permalink: exp1/
 title: Experimento 1
-title_icon: icon_puzzle_alt
+title_icon: fas fa-puzzle-piece
 body_color: blue
 updated: 2018-05-12
 type: exp

@@ -7,10 +7,10 @@ landing: landing-page
 
 <div class="intro">
     <div class="jumbotron">
-        <h1><i class="fa fa-chain-broken"></i> Baixe a biblioteca para MATLAB</h1>
+        <h1><i class="fas fa-link"></i> Baixe a biblioteca para MATLAB</h1>
 
         <div class="cta-container">
-            <a class="btn btn-primary btn-cta" href="{{ site.download_url }}" target="_blank"><i class="fa fa-cloud-download"></i> Baixar</a>
+            <a class="btn btn-primary btn-cta" href="{{ site.download_url }}" target="_blank"><i class="fas fa-cloud-download-alt"></i> Baixar</a>
         </div><!--//cta-container-->
     </div>
 </div><!--//intro-->
@@ -19,6 +19,32 @@ landing: landing-page
 
     {% for page in site.pages %}
     {% if page.permalink != "" and page.permalink != "/" and page.enabled != false and page.intro == true %}
+    {% unless page.path contains "assets" %}
+    <div class="item item-{{ page.body_color }} col-md-4 col-sm-6 col-xs-6">
+        <div class="item-inner">
+            <div class="icon-holder">
+                <i class="{{ page.title_icon }}"></i>
+            </div><!--//icon-holder-->
+            <h3 class="title">{{ page.title }}</h3>
+            {% if page.description != "" %}
+            <p class="intro">{{ page.description }}</p>
+            {% endif %}
+            <a class="link" href="{{ page.permalink }}"><span></span></a>
+        </div><!--//item-inner-->
+    </div><!--//item-->
+    {% endunless %}
+    {% endif %}
+    {% endfor %}
+</div><!--//cards-->
+
+<h2 class="title">Documentação</h2>
+<div class="intro">
+<!--  <p>Do you like <b>{{ site.project_name}}</b>? Learn how it works and more advanced topics!</p> -->
+</div><!--//intro-->
+<div class="cards-wrapper row cards-wrapper-adjust">
+
+    {% for page in site.pages %}
+    {% if page.permalink != "" and page.permalink != "/" and page.enabled != false and page.intro != true and page.type == "doc" %}
     {% unless page.path contains "assets" %}
     <div class="item item-{{ page.body_color }} col-md-4 col-sm-6 col-xs-6">
         <div class="item-inner">
@@ -37,14 +63,15 @@ landing: landing-page
     {% endfor %}
 </div><!--//cards-->
 
-<h2 class="title">Documentação e Experimentos</h2>
+
+<h2 class="title">Experimentos</h2>
 <div class="intro">
 <!--  <p>Do you like <b>{{ site.project_name}}</b>? Learn how it works and more advanced topics!</p> -->
 </div><!--//intro-->
 <div class="cards-wrapper row cards-wrapper-adjust">
 
     {% for page in site.pages %}
-    {% if page.permalink != "" and page.permalink != "/" and page.enabled != false and page.intro != true %}
+    {% if page.permalink != "" and page.permalink != "/" and page.enabled != false and page.intro != true and page.type == "exp" %}
     {% unless page.path contains "assets" %}
     <div class="item item-{{ page.body_color }} col-md-4 col-sm-6 col-xs-6">
         <div class="item-inner">

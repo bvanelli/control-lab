@@ -3,7 +3,8 @@ permalink: about/
 title: About
 title_icon: icon_group
 body_color: purple
-description: Sobre o projeto
+type: doc
+description: Informações sobre o projeto e licenças.
 ---
 
 # Projeto
