@@ -1341,7 +1341,13 @@ small {
 }
 
 img {
-    display: inline-block;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3em;
+    margin-bottom: 3em;
     height: auto;
     max-width: 100%;
 }
+
+
