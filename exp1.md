@@ -105,3 +105,13 @@ $$U(t) = 1 - U'(t) + \frac{\sin(2 \cdot \pi \cdot U'(t))}{2\pi}$$
 Por fim, o gráfico mostra a resposta em potência dado um ângulo de disparo.
 
 <img src="/control-lab/assets/images/exp1/actuator.png" style="width: 60%;"/>
+
+# Modelo Completo
+
+Com base nos modelos obtidos anteriormente, pode-se obter um modelo completo da planta. Foi feito um bloco com o modelo no simulink para testar os possíveis controladores no sistema.
+
+<img src="/control-lab/assets/images/exp1/simulink-matlab.png" style="width: 100%;"/>
+
+# Controlador
+
+
