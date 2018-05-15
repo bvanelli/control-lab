@@ -17,12 +17,12 @@ $(document).ready(function() {
         if (i > 0) {
             var curr_elem = i - 1;
             var next_element = null;
-
+            
             if (children.length === i + 1) {
                 next_element = $(h1).nextAll("h2");
                 curr_elem += 1;
             } else {
-                next_element = $(back_obj).nextUntil(h1, "h2");
+                next_element = $(back_obj).nextUntil(h1, "h1"); // TODO: fix this to include subheadings into TOC
             }
 
             if (next_element.length > 0) {
