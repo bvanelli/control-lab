@@ -14,34 +14,16 @@ $(document).ready(function() {
         var curr_title = $('<li><a class="scrollto" href="#' + anchor_name + '">' + $(h1).html() + '</a></li>');
         doc_menu.append(curr_title);
 
-        if (i > 0) {
-            var curr_elem = i - 1;
-            var next_element = null;
-            
-            if (children.length === i + 1) {
-                next_element = $(h1).nextAll("h2");
-                curr_elem += 1;
-            } else {
-                next_element = $(back_obj).nextUntil(h1, "h1"); // TODO: fix this to include subheadings into TOC
-            }
+        next_element = $(h1).nextUntil('h1').filter('h2');
+        console.log(next_element)
+        next_element.each(function (j, h2) {
+            var anchor_name_sub = "tocAnchor-" + i + "-" + j;
 
-            if (next_element.length > 0) {
-                var sub_objs = "";
-                next_element.each(function (j, h2) {
-                    var anchor_name_sub = "tocAnchor-" + curr_elem + "-" + j;
+            h2.setAttribute("id", anchor_name_sub);
+            sub_objs = '<li><a class="scrollto" href="#' + anchor_name_sub + '">' + $(h2).text() + '</a></li>';
+            curr_title.append('<ul class="nav doc-sub-menu">' + sub_objs + '</ul>');
+        });
 
-                    h2.setAttribute("id", anchor_name_sub);
-                    sub_objs += '<li><a class="scrollto" href="#' + anchor_name_sub + '">' + $(h2).text() + '</a></li>';
-
-                });
-
-                curr_title.append('<ul class="nav doc-sub-menu">' + sub_objs + '</ul>');
-            }
-
-
-        }
-
-        back_obj = h1;
     });
 
     /* ===== Affix Sidebar ===== */
