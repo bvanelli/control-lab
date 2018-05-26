@@ -110,8 +110,18 @@ Por fim, o gráfico mostra a resposta em potência dado um ângulo de disparo.
 
 Com base nos modelos obtidos anteriormente, pode-se obter um modelo completo da planta. Foi feito um bloco com o modelo no simulink para testar os possíveis controladores no sistema.
 
-<img src="/control-lab/assets/images/exp1/simulink-matlab.png" style="width: 100%;"/>
+<div class="card" style="width: 100%;">
+  <img class="card-img-top" src="/control-lab/assets/images/exp1/simulink-matlab.png" style="width: 95%" alt="Card image cap">
+  <div class="card-body" style="margin-bottom: 2rem;">
+    <p class="card-text">Baixe o modelo no Simulink para utilizar no MATLAB.</p>
+    <a href="#" class="btn btn-primary">Baixar modelo</a>
+  </div>
+</div>
 
 # Controlador
 
+## Controle On/Off
 
+## Controle proporcional
+
+# Projetando o controlador

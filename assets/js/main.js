@@ -17,7 +17,7 @@ $(document).ready(function() {
         next_element = $(h1).nextUntil('h1').filter('h2');
         console.log(next_element)
         next_element.each(function (j, h2) {
-            var anchor_name_sub = "tocAnchor-" + i + "-" + j;
+            var anchor_name_sub = "tocAnchor-" + i + "-" + (j + 1);
 
             h2.setAttribute("id", anchor_name_sub);
             sub_objs = '<li><a class="scrollto" href="#' + anchor_name_sub + '">' + $(h2).text() + '</a></li>';
