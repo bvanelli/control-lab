@@ -1,0 +1,5 @@
+<h1>Controlador de Tensão</h1>
+
+<p>Para controlar a tensão, e consequentemente a corrente em cima de uma carga, é necessário um circuito de acionamento que faça com que a carga receba apenas parte da tensão de entrada. Isso pode ser obtido com sinal PWM no caso de motores DC e resistências, mas é prejudicial no caso de carga sensíveis à variação abrupta da tensão de entrada, como placas peltier.</p>
+
+<p>Esse circuito transforma um sinal de referência PWM em um valor DC de entrada retificado com baixo ripple.</p>

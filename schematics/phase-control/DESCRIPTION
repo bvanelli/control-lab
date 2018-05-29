@@ -1,0 +1,7 @@
+<h1> Controlador de Fase</h1>
+
+<p> Controlador de fase utilizando TCA 785. Esse circuito utiliza como entrada um sinal PWM de Arduino (de 500 Hz a 1000 Hz) e altera o ângulo de disparo do triac de acordo com o valor do PWM fornecido. </p>
+
+<p> <b>Atenção: </b> Esse circuito não é isolado utilizando um transformador (com exceção da entrada do Arduino) e é alimentado diretamente da rede. Tenha muito cuidado ao testar o circuito!</p>
+
+<p> <b>Atenção: </b> Não inverta a fase com o neutro na entrada. Caso necessário, utilize uma tomada de três pinos (com terra) para não inverter a fase, e sempre cheque a fase com um multímetro antes de ligar o circuito.</p>
