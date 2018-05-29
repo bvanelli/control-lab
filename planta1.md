@@ -4,7 +4,7 @@ title: Planta Térmica 1
 title_icon: fa fa-thermometer-half
 body_color: red
 type: doc
-updated: 2018-05-26
+updated: 2018-05-29
 description: Documentação da planta tipo caldeira acionada por resistência.
 ---
 
@@ -22,11 +22,11 @@ description: Documentação da planta tipo caldeira acionada por resistência.
 
 O objetivo é criar uma planta térmica controlada utilizando uma resistência e um sistema de medição.
 
-<img src="/control-lab/assets/images/planta1/planta.png" style="width: 40%;"/>
+<img src="/control-lab/assets/images/planta1/planta.png" style="width: 50%;"/>
 
 Para realizar o controle da planta térmica desse experimento, vamos construir um controlador de fase para acionar e controlar uma resistência. Um controlador de fase é um circuito que varia o ângulo de disparo em uma onda senoidal de forma a aplicar apenas parte da tensão da rede na carga. Com isso, pode-se variar a tensão RMS na carga.
 
-![](https://upload.wikimedia.org/wikipedia/commons/0/07/Regulated_rectifier.gif)
+![](/control-lab/assets/images/planta1/angle.gif)
 
 # Projeto do controlador
 
@@ -39,7 +39,7 @@ Para isso, vamos utilizar um controlador pronto de fase chamado TCA 785. O jeito
 <div class="col-sm-6"><img src="/control-lab/assets/images/planta1/tca-intern.png" /></div>
 </div>
 
-Embora o módulo tenha 16 entradas e saídas (DIP16), apenas algumas são necessárias. São elas:
+Embora o circuito integrado tenha 16 entradas e saídas (DIP16), apenas algumas são necessárias. São elas:
 
 - **GND**: ground comum do circuito.
 - **V<sub>SYNC</sub>**: sinal senoidal para sincronização com a frequência e fase da rede.
