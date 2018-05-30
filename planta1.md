@@ -66,7 +66,7 @@ O Arduino deve gerar um sinal de tensão de referência para o CI, e também dev
 
 ## Circuito Completo
 
-O circuito completo foi montado se baseando então no circuito de exemplo presente no datasheet do TCA 785.
+O circuito completo foi montado se baseando então no circuito de exemplo presente [no datasheet](http://www.farnell.com/datasheets/1836360.pdf) do TCA 785.
 
 <div class="card bg-light mb-3" style="width: 100%;">
   <img class="card-img-top" src="/control-lab/assets/images/planta1/completo.png" style="width: 95%" alt="Card image cap">
@@ -125,4 +125,8 @@ TODO: incluir foto do circuito soldado.
 
 Para medir a temperatura, vamos utilizar um sensor de temperatura já à prova d'água chamado [DS18b20](http://proesi.com.br/catalog/product/view/id/7183/s/sensor-de-temperatura-a-prova-d-agua-ds18b20/).
 
-De acordo com o datasheet, é necessário apenas um pullup para ligar o sensor, que é feito com um resistor qualquer entre o pino de entrada e o 5V do Arduino.
+<img src="/control-lab/assets/images/planta1/sensor.jpg" style="width: 50%;"/>
+
+De acordo com [o datasheet](https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf), é necessário apenas um pullup para ligar o sensor, que é feito com um resistor qualquer (10k&Omega;, por exemplo) entre o pino de entrada e o 5V do Arduino. A figura a seguir mostra como conectar o sensor. Note que a cor dos fios do diagrama é igual ao do sensor com case.
+
+<img src="/control-lab/assets/images/planta1/ds18b20.png" style="width: 50%;"/>

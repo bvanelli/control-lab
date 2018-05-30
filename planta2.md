@@ -63,4 +63,12 @@ Abaixo selecionamos uma lista de componentes utilizada no nosso projeto, bem com
 - [Resistor 100k](http://proesi.com.br/catalog/product/view/id/6133/s/resistor-precisao-1-1-4w-100k/)
 - [Capacitor 1u](http://proesi.com.br/capacitor-eletrolitico-1uf-50v-105.html)
 
+# Medição de temperatura
 
+Para medir a temperatura, vamos utilizar um sensor de temperatura já à prova d'água chamado [DS18b20](http://proesi.com.br/catalog/product/view/id/7183/s/sensor-de-temperatura-a-prova-d-agua-ds18b20/).
+
+<img src="/control-lab/assets/images/planta2/sensor.jpg" style="width: 50%;"/>
+
+De acordo com o datasheet, é necessário apenas um pullup para ligar o sensor, que é feito com um resistor qualquer (10k&Omega;, por exemplo) entre o pino de entrada e o 5V do Arduino. A figura a seguir mostra como conectar o sensor. Note que a cor dos fios do diagrama é igual ao do sensor com case.
+
+<img src="/control-lab/assets/images/planta2/ds18b20.png" style="width: 50%;"/>
