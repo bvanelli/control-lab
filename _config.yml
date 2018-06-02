@@ -17,7 +17,7 @@ baseurl: /control-lab
 
 
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 defaults:
   -
     scope:
