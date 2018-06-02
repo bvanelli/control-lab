@@ -15,7 +15,6 @@ $(document).ready(function() {
         doc_menu.append(curr_title);
 
         next_element = $(h1).nextUntil('h1').filter('h2');
-        console.log(next_element)
         next_element.each(function (j, h2) {
             var anchor_name_sub = "tocAnchor-" + i + "-" + (j + 1);
 

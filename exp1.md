@@ -3,7 +3,7 @@ permalink: exp1/
 title: Experimento 1
 title_icon: fas fa-puzzle-piece
 body_color: blue
-updated: 2018-05-12
+updated: 2018-06-02
 type: exp
 description: Modelagem e implicações dos controladores para um sistema térmico.
 ---
@@ -118,10 +118,24 @@ Com base nos modelos obtidos anteriormente, pode-se obter um modelo completo da 
   </div>
 </div>
 
-# Controlador
+# Projetando o Controlador
+
+Uma das vantagens de um sistema térmico é que seu controle é simplificado devido tanto à dinâmica mais lenta quanto à menor complexidade. O sistema modelado é um integrador (**1/s**), que não só garante erro nulo em malha fechada para o degrau como pode ser facilmente controlado com a técnica On/Off, onde o atuador é apenas ligado e desligado. Abaixo está o diagrama de blocos para medir a resposta ao degrau do sistema.
+
+<img src="/control-lab/assets/images/exp1/simulink-degrau.png" style="width: 60%;"/>
+
+Utilizando o modelo de Matlab, vamos observar a resposta do sistema em malha aberta ao degrau.
+
+<img src="/control-lab/assets/images/exp1/step.png" style="width: 60%;"/>
 
 ## Controle On/Off
 
+O controle on/off consiste em aplicar sinal de controle máximo ou mínimo caso a planta esteja abaixo ou acima do setpoint, respectivamente. A Figura a seguir mostra o resultado desse tipo de controle. Note que o sinal é brusco e isso reflete em overshoots na saída, já que o sistema possui atraso.
+
+<img src="/control-lab/assets/images/exp1/onoff.png" style="width: 100%;"/>
+
 ## Controle proporcional
 
-# Projetando o controlador
+O controle proporcional é melhor empregado nessas situações porque possibilita uma ação de controle mais suave, fazendo com que a resposta possua menor erro em relação à referência.
+
+<img src="/control-lab/assets/images/exp1/proporcional.png" style="width: 100%;"/>
