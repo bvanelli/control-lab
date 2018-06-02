@@ -128,6 +128,10 @@ Utilizando o modelo de Matlab, vamos observar a resposta do sistema em malha abe
 
 <img src="/control-lab/assets/images/exp1/step.png" style="width: 60%;"/>
 
+O controle pode ser feito como mostra a figura a seguir. Note que é necessário zerar os offsets de temperatura na realimentação porque o sistema deve ser linearizado (ou seja, quando a entrada é zero, a saída é zero, que equivale à temperatura ambiente). Escolheu-se 23 ºC porque é a temperatura média em Blumenau/SC, mas você pode alterar ou mesmo usar o primeiro valor de medição de temperatura como base.
+
+<img src="/control-lab/assets/images/exp1/simulink-controle.png" style="width: 60%;"/>
+
 ## Controle On/Off
 
 O controle on/off consiste em aplicar sinal de controle máximo ou mínimo caso a planta esteja abaixo ou acima do setpoint, respectivamente. A Figura a seguir mostra o resultado desse tipo de controle. Note que o sinal é brusco e isso reflete em overshoots na saída, já que o sistema possui atraso.

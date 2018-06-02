@@ -38,7 +38,7 @@ O circuito final pode ser observado a seguir.
   <img class="card-img-top" src="/control-lab/assets/images/planta2/completo.png" style="width: 95%" alt="Card image cap">
   <div class="card-body" style="margin-bottom: 2rem;">
     <p class="card-text">Baixe os arquivos do projeto no Eagle (esquemáticos e PCB).</p>
-    <a href="#" class="btn btn-primary">Baixar projeto</a>
+    <a href="https://github.com/bvanelli/control-lab/tree/master/schematics/voltage-control" target="_blank" class="btn btn-primary">Baixar projeto</a>
   </div>
 </div>
 
