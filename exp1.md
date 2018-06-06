@@ -143,3 +143,4 @@ O controle on/off consiste em aplicar sinal de controle máximo ou mínimo caso 
 O controle proporcional é melhor empregado nessas situações porque possibilita uma ação de controle mais suave, fazendo com que a resposta possua menor erro em relação à referência.
 
 <img src="/control-lab/assets/images/exp1/proporcional.png" style="width: 100%;"/>
+

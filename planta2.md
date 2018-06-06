@@ -63,6 +63,13 @@ Abaixo selecionamos uma lista de componentes utilizada no nosso projeto, bem com
 - [Resistor 100k](http://proesi.com.br/catalog/product/view/id/6133/s/resistor-precisao-1-1-4w-100k/)
 - [Capacitor 1u](http://proesi.com.br/capacitor-eletrolitico-1uf-50v-105.html)
 
+# Circuito Final
+
+As fotos do circuito final podem ser observados na figura a seguir. Note que esse circuito não respeita exatamente os esquemáticos e organização da placa projetados aqui (infelizmente) porque foi projetada para um outro projeto, mas possui o mesmo funcionamento.
+
+<img src="/control-lab/assets/images/planta2/circuito-cima.jpg" style="width: 50%;"/>
+<img src="/control-lab/assets/images/planta2/circuito-baixo.jpg" style="width: 50%;"/>
+
 # Medição de temperatura
 
 Para medir a temperatura, vamos utilizar um sensor de temperatura já à prova d'água chamado [DS18b20](http://proesi.com.br/catalog/product/view/id/7183/s/sensor-de-temperatura-a-prova-d-agua-ds18b20/).

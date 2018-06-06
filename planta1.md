@@ -119,7 +119,10 @@ Abaixo selecionamos uma lista de componentes utilizada no nosso projeto, bem com
 
 ## Circuito final
 
-TODO: incluir foto do circuito soldado.
+O circuito final pode ser observado nas figuras a seguir.
+
+<img src="/control-lab/assets/images/planta1/circuito-cima.jpg" style="width: 50%;"/>
+<img src="/control-lab/assets/images/planta1/circuito-baixo.jpg" style="width: 50%;"/>
 
 # Medição de temperatura
 
