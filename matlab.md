@@ -72,7 +72,7 @@ a.writePWMDutyCycle('D9', 0.5);
 
 # Biblioteca do control-lab
 
-Para simplificar as coisas, utilizamos uma versão modificada do 
+Para simplificar as coisas, utilizamos uma versão modificada baseada na do Arduino.
 
 # Portas Disponíveis
 

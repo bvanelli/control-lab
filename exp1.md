@@ -70,7 +70,7 @@ E como podemos ver, essa modelagem está muito próxima da resposta real do sist
 
 ## Modelagem da Descida
 
-Não é incomum termos que modelar, além do impacto do degrau no sistema, o impacto do degrau negativo. No entanto, como o sistema é térmico, não é possível aplicar um sinal de controle negativo apenas com a resistência: seria necessário um outro atuador como ventiladores para aumentar a troca térmica do sistema. 
+Não é incomum termos que modelar, além do impacto do degrau no sistema, o impacto do degrau negativo. No entanto, como o sistema é térmico, não é possível aplicar um sinal de controle negativo apenas com a resistência: seria necessário um outro atuador para melhorar a troca térmica do sistema. 
 
 No entanto, podemos considerar o sistema sem atuação e ver como que a temperatura decai com o passar do tempo. Obtemos um modelo empírico desse cenário, já que é difícil modelar as trocas de calor para um objeto tão irregular como uma panela. Por simplicidade, a aproximação também foi feita usando um sistema integrador.
 
