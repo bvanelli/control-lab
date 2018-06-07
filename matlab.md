@@ -72,7 +72,29 @@ a.writePWMDutyCycle('D9', 0.5);
 
 # Biblioteca do control-lab
 
-Para simplificar as coisas, utilizamos uma versão modificada baseada na do Arduino.
+Para simplificar as coisas, utilizamos uma versão modificada baseada na do Arduino. Ela já foi pensada para incluir o sensor de temperatura. Para instanciar a classe, é necessário chamar o seu construtor que deriva da classe principal do Arduino.
+
+{% highlight python %}
+# parâmetros: control_arduino(porta, placa, portaPWM, portaSensor, sample_rate)
+a = control_arduino('COM9', 'UNO', 'D9', 'A0', 1);
+{% endhighlight %}
+
+Se tudo correr bem, você já poderá ler a temperatura do sensor:
+
+{% highlight python %}
+t = a.getOneWireTemperature();
+{% endhighlight %}
+
+Para escrever na porta, substituímos a função `writePWMVoltage` e `writePWMDutyCycle` para escreverem o valor inverso. Isso é necessário porque ambas os atuadores das duas plantas são inversores (sinal de saída máximo com entrada mínima e vice-versa).
+
+{% highlight python %}
+a.writePWMDutyCycle(1); # escreve valor mínimo de duty cycle na porta especificada na inicalização
+a.writePWMDutyCycle(0); # escreve valor máximo de duty cycle na porta especificada na inicalização
+{% endhighlight %}
+
+Também foi escrito uma toolbox para realizar as mesmas ações no simulink, com o objetivo de ler valor de temperatura e escrever valor de PWM. Abaixo estão os 3 blocos funcionais para isso:
+
+<img src="/control-lab/assets/images/matlab/blocos.png" style="width: 100%;"/>
 
 # Portas Disponíveis
 
