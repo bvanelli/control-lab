@@ -114,7 +114,7 @@ Com base nos modelos obtidos anteriormente, pode-se obter um modelo completo da 
   <img class="card-img-top" src="/control-lab/assets/images/exp1/simulink-matlab.png" style="width: 95%" alt="Card image cap">
   <div class="card-body" style="margin-bottom: 2rem;">
     <p class="card-text">Baixe o modelo no Simulink para utilizar no MATLAB.</p>
-    <a href="#" class="btn btn-primary">Baixar modelo</a>
+    <a href="https://github.com/bvanelli/control-lab/raw/master/models/modelo1.slx" class="btn btn-primary">Baixar modelo</a>
   </div>
 </div>
 
@@ -144,3 +144,6 @@ O controle proporcional é melhor empregado nessas situações porque possibilit
 
 <img src="/control-lab/assets/images/exp1/proporcional.png" style="width: 100%;"/>
 
+# Conclusão
+
+Nesse experimento vimos a modelagem e simulação de um sistema físico real, passo que é muito importate no controle de processos. O próximo experimento consistirá em implementar o controlador para o mesmo sistema utilizando os módulos montados na [documentação da planta térmica 1](/control-lab/planta1).
