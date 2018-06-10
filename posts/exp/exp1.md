@@ -84,7 +84,9 @@ Pode-se observar que o sistema em questão apresenta uma resposta de descida mui
 
 ## Modelagem do Sensor de Temperatura
 
-TODO
+A modelagem do sensor de temperatura foi simplificada para possuir uma dinâmica de primeira ordem. Como o sensor apresentou uma resposta com **t<sub>5%</sub> = 15 s** em alguns testes realizados, a dinâmica foi estimada como a função de transferência a seguir:
+
+$$G_{sensor} = \frac{1}{5s + 1}$$
 
 ## Modelagem do Atuador
 

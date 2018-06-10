@@ -24,7 +24,7 @@ Infelizmente, devido ao funcionamento, essa placa não aceita entrada PWM para c
 
 ## Entrada para o Arduino
 
-Assim como o experimento da [planta térmica 1](/control-lab/planta1), essa também utilizará um filtro com optoacoplador para pegar a componente DC do sinal PWM do Arduino.
+Assim como o experimento da [planta térmica 1](/control-lab/planta1), essa também utilizará um filtro com optoacoplador para retificar a componente DC do sinal PWM do Arduino.
 
 <img src="/control-lab/assets/images/planta2/ref.png" style="width: 80%;"/>
 
@@ -79,3 +79,19 @@ Para medir a temperatura, vamos utilizar um sensor de temperatura já à prova d
 De acordo com o datasheet, é necessário apenas um pullup para ligar o sensor, que é feito com um resistor qualquer (10k&Omega;, por exemplo) entre o pino de entrada e o 5V do Arduino. A figura a seguir mostra como conectar o sensor. Note que a cor dos fios do diagrama é igual ao do sensor com case.
 
 <img src="/control-lab/assets/images/planta2/ds18b20.png" style="width: 50%;"/>
+
+# Peças de fixação da peltier
+
+TODO: Peças de projeto do Rômulo
+
+# Montagem do Sistema
+
+A peltier foi fixada entre os dissipadores de calor utilizando as peças impressas na impressora 3D. Foi cortado um quadrado em uma caixa de isopor para garantir o isolamento térmico do lado frio da peltier. Um cooler 40X40X10 mm foi fixado para melhorar a troca térmica no lado quente.
+
+<img src="/control-lab/assets/images/planta2/geladeira.jpg" style="width: 50%;"/>
+
+O sensor foi fixado diretamente no dissipador. Porque iremos controlar a tensão em cima do dissipador e não no ambiente interno do isopor? Porque o tempo de assentamento do sistema interno é muito alto e não poderia ser realizado em tempo hábil. Além disso, a malha interna apresenta uma dinâmica muito mais interessante do ponto de vista de controle.
+
+<img src="/control-lab/assets/images/planta2/sensor-final.jpg" style="width: 50%;"/>
+
+

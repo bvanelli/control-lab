@@ -133,3 +133,33 @@ Para medir a temperatura, vamos utilizar um sensor de temperatura já à prova d
 De acordo com [o datasheet](https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf), é necessário apenas um pullup para ligar o sensor, que é feito com um resistor qualquer (10k&Omega;, por exemplo) entre o pino de entrada e o 5V do Arduino. A figura a seguir mostra como conectar o sensor. Note que a cor dos fios do diagrama é igual ao do sensor com case.
 
 <img src="/control-lab/assets/images/planta1/ds18b20.png" style="width: 50%;"/>
+
+# Montagem do Sistema
+
+<div class="callout-block callout-warning">
+  <div class="icon-holder">
+  <i class="fas fa-exclamation-triangle"></i>
+  </div><!--//icon-holder-->
+  <div class="content">
+  <h4 class="callout-title">Atenção!</h4>
+  <p>
+    <ul>
+    <li>Não ligue a resistência em um recipiente sem água, pois ela não conseguirá trocar calor e queimará.</li>
+    <li>Não inverta a fase com o neutro na entrada do circuito de controle. Use uma tomada de três pinos para evitar inverter e sempre cheque se estão na ordem certa antes de ligar o circuito.</li>
+    </ul> 
+  </p>
+  </div><!--//content-->
+</div><!--//callout-block-->
+
+A montagem do sistema completo pode ser visto na Figura a seguir, com base no que foi apresentado dos circuitos anteriores.
+
+<img src="/control-lab/assets/images/planta1/completo.jpg" style="width: 100%;"/>
+
+Para ajudar na montagem, foram feitas também fotos próximas aos principais componentes. A panela conta apenas com uma resistência e o sensor de temperatura preso à sua lateral. Note também que, por medidas de segurança, aterramos o corpo metálico da panela com o terra da rede elétrica. Note também que você deve usar uma panela adequada à sua resistência escolhida.
+
+<img src="/control-lab/assets/images/planta1/panela.jpg" style="width: 70%;"/>
+
+Por último, o circuito de controle deve ser conectado ao Arduino (cabo vermelho do PWM e cabo azul do GND), à carga (ambos cabos vermelhos, a ordem não importa) e à tensão da rede (cabos brancos, o cabo com marcação vermelha sinalizando a fase e sem marcação para o neutro).
+
+<img src="/control-lab/assets/images/planta1/circuito-montado.jpg" style="width: 70%;"/>
+
