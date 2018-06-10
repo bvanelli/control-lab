@@ -68,5 +68,67 @@ Já é possível inferir que o ganho do sistema é aproximadamente **-0.875**. �
 
 <img src="/control-lab/assets/images/exp3/step-norm.png" style="width: 80%;"/>
 
+# Aproximação por tfest
+
+Como o sistema tem ordem elevada, métodos empíricos como Ziegler-Nichols, Hagglund, Nishikawa e Sundaresan não funcionam pois predizem modelos de primeira ordem.
+
+Uma alternativa é usar métodos numéricos que melhor se adequam aos dados. Pode-se, por exemplo, utilizar a função `tfest` que estima o melhor modelo dada a ordem do sistema. Primeiro, é necessário criar uma variável que contém os dados do modelo:
+
+```python
+Ts = 1;
+tsaida = [0; saida];
+tentrada = [0; ones(length(saida), 1)];
+data = iddata(tsaida, tentrada, Ts);
+```
+
+É recomendado adicionar esse zero no início pela documentação da função. Com isso, podemos estimar um sistema de três polos e um zero, baseando-se na resposta desejada.
+
+```python
+G = tfest(data, 3, 1)
+```
+
+O resultado aparenta ser bastante bom:
+
+```
+
+G =
+ 
+  From input "u1" to output "y1":
+           -0.0005718 s - 1.226e-06
+  -------------------------------------------
+  s^3 + 0.04098 s^2 + 0.0005474 s + 1.518e-06
+ 
+Continuous-time identified transfer function.
+
+Parameterization:
+   Number of poles: 3   Number of zeros: 1
+   Number of free coefficients: 5
+   Use "tfdata", "getpvec", "getcov" for parameters and their uncertainties.
+
+Status:                                          
+Estimated using TFEST on time domain data "data".
+Fit to estimation data: 98.28% (simulation focus)
+FPE: 1.478e-05, MSE: 1.457e-05    
 
 
+```
+
+Pode-se observar que o matching é quase perfeito dos dois sistemas (aproximação e real):
+
+<img src="/control-lab/assets/images/exp3/comparacao.png" style="width: 80%;"/>
+
+# Modelo Completo
+
+Com base nos modelos obtidos anteriormente, pode-se obter um modelo completo da planta. Foi feito um bloco com o modelo no simulink para testar os possíveis controladores no sistema.
+
+<div class="card" style="width: 100%;">
+  <img class="card-img-top" src="/control-lab/assets/images/exp3/simulink-matlab.png" style="width: 95%" alt="Card image cap">
+  <div class="card-body" style="margin-bottom: 2rem;">
+    <p class="card-text">Baixe o modelo no Simulink para utilizar no MATLAB.</p>
+    <a href="https://github.com/bvanelli/control-lab/raw/master/models/modelo2.slx" target="_blank" class="btn btn-primary">Baixar modelo</a>
+  </div>
+</div>
+
+# Conclusão
+
+Esse experimento realizou a identificação de um modelo a partir da resposta ao degrau.

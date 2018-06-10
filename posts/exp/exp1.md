@@ -116,7 +116,7 @@ Com base nos modelos obtidos anteriormente, pode-se obter um modelo completo da 
   <img class="card-img-top" src="/control-lab/assets/images/exp1/simulink-matlab.png" style="width: 95%" alt="Card image cap">
   <div class="card-body" style="margin-bottom: 2rem;">
     <p class="card-text">Baixe o modelo no Simulink para utilizar no MATLAB.</p>
-    <a href="https://github.com/bvanelli/control-lab/raw/master/models/modelo1.slx" class="btn btn-primary">Baixar modelo</a>
+    <a href="https://github.com/bvanelli/control-lab/raw/master/models/modelo1.slx" target="_blank" class="btn btn-primary">Baixar modelo</a>
   </div>
 </div>
 
