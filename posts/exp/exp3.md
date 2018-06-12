@@ -76,8 +76,8 @@ Uma alternativa é usar métodos numéricos que melhor se adequam aos dados. Pod
 
 ```python
 Ts = 1;
-tsaida = [0; saida];
-tentrada = [0; ones(length(saida), 1)];
+tsaida = [zeros(5, 1); saida];
+tentrada = [zeros(5,1); ones(length(saida), 1)];
 data = iddata(tsaida, tentrada, Ts);
 ```
 
@@ -94,9 +94,9 @@ O resultado aparenta ser bastante bom:
 G =
  
   From input "u1" to output "y1":
-           -0.0005718 s - 1.226e-06
+           -0.0005416 s - 1.143e-06
   -------------------------------------------
-  s^3 + 0.04098 s^2 + 0.0005474 s + 1.518e-06
+  s^3 + 0.03924 s^2 + 0.0005207 s + 1.417e-06
  
 Continuous-time identified transfer function.
 
@@ -107,8 +107,8 @@ Parameterization:
 
 Status:                                          
 Estimated using TFEST on time domain data "data".
-Fit to estimation data: 98.28% (simulation focus)
-FPE: 1.478e-05, MSE: 1.457e-05    
+Fit to estimation data: 98.01% (simulation focus)
+FPE: 2.079e-05, MSE: 2.05e-05    
 
 
 ```
@@ -116,6 +116,28 @@ FPE: 1.478e-05, MSE: 1.457e-05
 Pode-se observar que o matching é quase perfeito dos dois sistemas (aproximação e real):
 
 <img src="/control-lab/assets/images/exp3/comparacao.png" style="width: 80%;"/>
+
+# Aproximação de segunda ordem ordem
+
+Muitas vezes, para facilitar o projeto do controlador é necessário reduzir a ordem do sistema. Pode-se obter também um modelo reduzido, mas que não vai ser tão realista.
+
+```python
+G = tfest(data, 2, 1)
+```
+
+Que dá como resultado uma aproximação pior mas com ordem reduzida.
+
+```
+G =
+ 
+    -0.01122 s - 5.381e-05
+  ---------------------------
+  s^2 + 0.01121 s + 6.293e-05
+
+Fit to estimation data: 84.39% (simulation focus)
+``` 
+
+<img src="/control-lab/assets/images/exp3/comparacao2.png" style="width: 80%;"/>
 
 # Modelo Completo
 
@@ -131,4 +153,4 @@ Com base nos modelos obtidos anteriormente, pode-se obter um modelo completo da 
 
 # Conclusão
 
-Esse experimento realizou a identificação de um modelo a partir da resposta ao degrau.
+Esse experimento realizou a identificação de um modelo a partir da resposta ao degrau. O próximo experimento abordará o projeto e implementação do controlador para o sistema utilizando a aproximação obtida.
