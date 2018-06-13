@@ -18,7 +18,7 @@ Esse experimento parte pra outra abordagem, que é a identificação dos parâme
 
 # Teste com o degrau
 
-Para inserir um degrau no sistema, montamos o sistema de peltier como [demonstrado na documentação da planta](/control-lab/planta2/). Utilizamos uma fonte de tensão de **10V@3A** como degrau no sistema. A tensão foi mantida constante durante todo o experimento mas a corrente variou devido às características internas da peltier.
+Para inserir um degrau no sistema, montamos o sistema de peltier como [demonstrado na documentação da planta](/control-lab/planta2/). Utilizamos uma fonte de tensão de **12V@3A** como degrau no sistema, utilizando o circuito descrito. É importante fazer a identificação com o circuito pois ele adiciona uma resistência do transistor que diminui a corrente da peltier. A tensão foi mantida constante durante todo o experimento mas a corrente variou devido às características internas da peltier.
 
 O gráfico da temperatura e os dados brutos do experimento podem ser vistos abaixo.
 
@@ -45,10 +45,11 @@ Vamos fazer um plot da resposta ao degrau. Pode-se observar que o degrau é apli
 plot(dados.time, dados.temperature); hold on;
 plot(dados.time, dados.input)
 ```
-Como só é de interesse a resposta ao degrau, vamos desconsiderar as primeiras 100 amostras. Como o sample time **Ts** é igual à 1, não iremos precisar dos dados de tempo.
+
+Como o sample time **Ts** é igual à 1, não iremos precisar dos dados de tempo.
 
 ```python
-saida = dados.temperature(100:end);
+saida = dados.temperature;
 ```
 
 Todo sistema linear apresenta ponto de equilíbrio no zero, então será preciso linearizar o sistema. Para isto, basta remover o valor de offset:
@@ -57,14 +58,14 @@ Todo sistema linear apresenta ponto de equilíbrio no zero, então será preciso
 saida = saida - saida(1);
 ```
 
-Vamos também normalizar em relação ao degrau de entrada para obter a resposta ao degrau unitário:
+Vamos também normalizar em relação ao degrau de entrada para obter a resposta ao degrau unitário. Como sabemos que o degrau aplicado pelo Arduino é de 5V, vamos modelar o sistema em torno desse valor para evitar conversões.
 
 ```python
-saida = saida/10;
+saida = saida/5;
 plot(saida);
 ```
 
-Já é possível inferir que o ganho do sistema é aproximadamente **-0.875**. É necessário agora aproximá-lo por uma função de transferência ou modelo no espaço de estados.
+Já é possível inferir que o ganho do sistema é aproximadamente **-3.5**. É necessário agora aproximá-lo por uma função de transferência ou modelo no espaço de estados.
 
 <img src="/control-lab/assets/images/exp3/step-norm.png" style="width: 80%;"/>
 
@@ -76,12 +77,12 @@ Uma alternativa é usar métodos numéricos que melhor se adequam aos dados. Pod
 
 ```python
 Ts = 1;
-tsaida = [zeros(5, 1); saida];
-tentrada = [zeros(5,1); ones(length(saida), 1)];
+tsaida = saida;
+tentrada = dados.input/5;
 data = iddata(tsaida, tentrada, Ts);
 ```
 
-É recomendado adicionar esse zero no início pela documentação da função. Com isso, podemos estimar um sistema de três polos e um zero, baseando-se na resposta desejada.
+É recomendado adicionar alguns zeros antes do degrau pela documentação da função (que os dados já possuem). Podemos inicialmente estimar um sistema de três polos e um zero, baseando-se na resposta desejada.
 
 ```python
 G = tfest(data, 3, 1)
@@ -92,12 +93,12 @@ O resultado aparenta ser bastante bom:
 ```
 
 G =
- 
+
   From input "u1" to output "y1":
-           -0.0005416 s - 1.143e-06
+            -0.001096 s - 1.629e-05
   -------------------------------------------
-  s^3 + 0.03924 s^2 + 0.0005207 s + 1.417e-06
- 
+  s^3 + 0.04304 s^2 + 0.0008624 s + 4.763e-06
+
 Continuous-time identified transfer function.
 
 Parameterization:
@@ -105,24 +106,23 @@ Parameterization:
    Number of free coefficients: 5
    Use "tfdata", "getpvec", "getcov" for parameters and their uncertainties.
 
-Status:                                          
+Status:
 Estimated using TFEST on time domain data "data".
-Fit to estimation data: 98.01% (simulation focus)
-FPE: 2.079e-05, MSE: 2.05e-05    
-
+Fit to estimation data: 99.15% (simulation focus)
+FPE: 7.844e-05, MSE: 7.639e-05
 
 ```
 
-Pode-se observar que o matching é quase perfeito dos dois sistemas (aproximação e real):
+Pode-se observar que o matching é quase perfeito dos dois sistemas (aproximação e real), mas a ordem ainda pode ser reduzida sem muita perda de informação (note que as constantes do numerador e denominador são muito pequenas).
 
 <img src="/control-lab/assets/images/exp3/comparacao.png" style="width: 80%;"/>
 
 # Aproximação de segunda ordem ordem
 
-Muitas vezes, para facilitar o projeto do controlador é necessário reduzir a ordem do sistema. Pode-se obter também um modelo reduzido, mas que não vai ser tão realista.
+Muitas vezes, para facilitar o projeto do controlador é necessário reduzir a ordem do sistema. Pode-se obter também um modelo reduzido, mas que não vai ser tão realista. Nesse caso, o modelo de segunda ordem se adequa bastante pois a dinâmica é mais simples, mas para sistemas mais complexos, o ideal é obter o menor modelo possível para controle.
 
 ```python
-G = tfest(data, 2, 1)
+G = tfest(data, 2, 0)
 ```
 
 Que dá como resultado uma aproximação pior mas com ordem reduzida.
@@ -130,11 +130,11 @@ Que dá como resultado uma aproximação pior mas com ordem reduzida.
 ```
 G =
  
-    -0.01122 s - 5.381e-05
+           -0.001532
   ---------------------------
-  s^2 + 0.01121 s + 6.293e-05
+  s^2 + 0.04669 s + 0.0004554
 
-Fit to estimation data: 84.39% (simulation focus)
+Fit to estimation data: 97.09% (simulation focus)
 ``` 
 
 <img src="/control-lab/assets/images/exp3/comparacao2.png" style="width: 80%;"/>
